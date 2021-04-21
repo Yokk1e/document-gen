@@ -1,11 +1,20 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+
 import { DocumentsModule } from './documents/documents.module';
-import { DocumentsController } from './documents/documents/documents.controller';
-import { DocumentsService } from './documents/documents/documents.service';
 
 @Module({
-  imports: [TypeOrmModule, ConfigModule, DocumentsModule],
+  imports: [
+    TypeOrmModule,
+    ConfigModule,
+    DocumentsModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', `${process.env.ASSET_PATH}`),
+      serveRoot: `/${process.env.ASSET_PATH}`,
+    }),
+  ],
 })
 export class AppModule {}
