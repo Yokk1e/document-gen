@@ -40,12 +40,11 @@ async function bootstrap() {
     }),
   );
 
-  if (process.env.API_DOCUMENT_ENABLE === 'TRUE') {
+  if (configService.get('API_DOCUMENT_ENABLE') === 'TRUE') {
     const options = new DocumentBuilder()
-      .addBearerAuth()
       .setTitle('Document Generate API')
       .setDescription('Document Generate API')
-      .setVersion('1.0.0')
+      .setVersion('0.0.1')
       .build();
 
     const document = SwaggerModule.createDocument(app, options);

@@ -8,8 +8,8 @@ import { DocumentsModule } from './documents/documents.module';
 
 @Module({
   imports: [
-    TypeOrmModule,
-    ConfigModule,
+    TypeOrmModule.forRoot(),
+    ConfigModule.forRoot(),
     DocumentsModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', `${process.env.ASSET_PATH}`),
