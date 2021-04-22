@@ -66,4 +66,8 @@ export class DocumentsService {
     };
     return await this.pdf(options);
   }
+
+  async findOne(id: number): Promise<Document> {
+    return this.documentRepository.findOneOrFail(id);
+  }
 }
