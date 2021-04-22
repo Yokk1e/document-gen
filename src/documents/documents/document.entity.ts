@@ -13,10 +13,18 @@ export class Document extends Base {
   @Column({ length: 255, nullable: true, default: null })
   name: string;
 
-  @Column({ nullable: true, default: null })
+  @Column({
+    type: 'datetime',
+    precision: 6,
+    nullable: true,
+  })
   brithDate: Date;
 
-  @Column({ nullable: true, default: null })
+  @Column({
+    type: 'datetime',
+    precision: 6,
+    nullable: true,
+  })
   entryDate: Date;
 
   @Column({ length: 255, nullable: true, default: null })
@@ -52,12 +60,19 @@ export class Document extends Base {
   @Column({ length: 255, nullable: true, default: null })
   addressProvince: string;
 
-  @Column({ length: 255, nullable: true, default: null })
-  escapeDate: string;
+  @Column({
+    type: 'datetime',
+    precision: 6,
+    nullable: true,
+  })
+  escapeDate: Date;
 
   @Column({ length: 255, nullable: true, default: null })
   fatherName: string;
 
   @Column({ length: 255, nullable: true, default: null })
   matherName: string;
+
+  @Column({ length: 255, nullable: true })
+  pdfFilenameTypeOne: string;
 }
